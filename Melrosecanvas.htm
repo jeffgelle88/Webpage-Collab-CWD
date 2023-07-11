@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Semi-arc Example</title>
+    <style>
+     canvas {
+            border: 4px solid black; 
+            background-color: lightgray;
+        }
+        #chartContainer {
+            position: relative;
+            width: 400px;
+            height: 400px;
+        }
+        }
+        canvas 
+        	position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style> 
+</head>
+<body>
+        <div id="chartContainer">
+        <canvas id="chartCanvas" width="400" height="400"></canvas>
+    </div>
+
+    <script>
+        // Data for the pie chart
+        var data = [
+            { label: "Slice 1", value: 30, color: "#DFFF00" },
+            { label: "Slice 2", value: 40, color: "#0D25ED" },
+            { label: "Slice 3", value: 30, color: "#F90000" }
+        ]; 
+
+        // Get the canvas element and its context
+        var canvas = document.getElementById("chartCanvas");
+        var ctx = canvas.getContext("2d");
+		
+        // Set the center coordinates and radius of the pie chart
+        var centerX = canvas.width / 2;
+        var centerY = canvas.height / 2;
+        var radius = Math.min(canvas.width, canvas.height) / 2.2;
+
+        // Calculate the total value of all slices
+        var totalValue = data.reduce(function (sum, slice) {
+            return sum + slice.value;
+        }, 0);
+
+        // Draw the pie slices
+        var startAngle = 2;
+        data.forEach(function (slice) {
+            var sliceAngle = (2 * Math.PI * slice.value) / totalValue;
+
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
+            ctx.closePath();
+            ctx.fillStyle = slice.color; 
+            ctx.fill();
+
+            startAngle += sliceAngle;
+        });
+        
+    </script>
+</body> 
+</html>

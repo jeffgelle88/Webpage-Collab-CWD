@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="300" height="300" style="border:5px solid #d3d3d3; background-color: pink;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var centerX = c.width / 2;
+var centerY = c.height / 2;
+var radius = 80;
+var startAngle = 0;
+var endAngle = Math.PI * 2 / 3;
+
+// Draw the first slice
+ctx.beginPath();
+ctx.moveTo(centerX, centerY);
+ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+ctx.closePath();
+ctx.fillStyle = "#ff0000"; // Red
+ctx.fill();
+ctx.strokeStyle = "#ffffff"; // White border
+ctx.lineWidth = 2;
+ctx.stroke();
+
+// Draw the second slice
+ctx.beginPath();
+ctx.moveTo(centerX, centerY);
+ctx.arc(centerX, centerY, radius, endAngle, endAngle * 2);
+ctx.closePath();
+ctx.fillStyle = "#00ff00"; // Green
+ctx.fill();
+ctx.strokeStyle = "#ffffff"; // White border
+ctx.stroke();
+
+// Draw the third slice
+ctx.beginPath();
+ctx.moveTo(centerX, centerY);
+ctx.arc(centerX, centerY, radius, endAngle * 2, endAngle * 3);
+ctx.closePath();
+ctx.fillStyle = "#0000ff"; // Blue
+ctx.fill();
+ctx.strokeStyle = "#ffffff"; // White border
+ctx.stroke();
+</script> 
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #canvas {
+      width: 315px;
+      height: 315px;
+      position: relative;
+      border: 6px solid #000000;
+      overflow: hidden;
+    }
+    
+    .circle {
+      width: 270px;
+      height: 270px;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      border-radius: 50%;
+      border: 7px solid #000000;
+      overflow: hidden;
+    }
+    
+    .slice {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .slice:nth-child(1) {
+       background-color: #ff0000; /* Red */
+       clip-path: polygon(50% 50%, 0% 100%, 0% -100%);
+     
+    }
+    .slice:nth-child(2) {
+      background-color: #ffff00; /* yellow */
+      clip-path: polygon(50% 50%, 300% 100%, 0% -100%);
+    }
+    .slice:nth-child(3) {
+      background-color: #0000ff; /* blue */
+      clip-path: polygon(50% 50%, 200% 80%, -200% 300%);
+     ctx.
+    }
+  </style>
+</head>
+<body>
+  <div id="canvas">
+    <div class="circle">
+      <div class="slice"></div>
+      <div class="slice"></div>
+      <div class="slice"></div>
+    </div>
+  </div>
+</body>
+</html>

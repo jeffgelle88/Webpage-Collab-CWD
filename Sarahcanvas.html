@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sarah</title>
+    <style>
+      canvas {
+        border: 2px solid black;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+<H1>PIE CHART</H1>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+
+      var centerX = canvas.width / 2;
+      var centerY = canvas.height / 2;
+      var radius = 100;
+
+      var angles = [(Math.PI * 2) / 3, (Math.PI * 2) / 3, (Math.PI * 2) / 3];
+
+      var colors = ["yellow", "#c1dd54", "darkorange"];
+
+      var borderColor = "white";
+
+      var rotationAngle = -95;
+
+      var rotationAngleRad = (rotationAngle * Math.PI) / 180;
+
+      var startAngle = -Math.PI / 2 + rotationAngleRad;
+
+      for (var i = 0; i < angles.length; i++) {
+        var endAngle = startAngle + angles[i];
+
+        context.beginPath();
+        context.moveTo(centerX, centerY);
+        context.arc(centerX, centerY, radius, startAngle, endAngle, false);
+        context.closePath();
+        context.fillStyle = colors[i];
+        context.fill();
+
+        context.strokeStyle = borderColor;
+        context.lineWidth = 3.5;
+        context.stroke();
+
+        startAngle = endAngle;
+      }
+
+    </script>
+  </body>
+</html>
